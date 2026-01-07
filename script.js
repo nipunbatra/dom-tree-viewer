@@ -28,11 +28,35 @@ async function fetchAndParse() {
 
     showLoading('Fetching and parsing...');
 
-    try {
-        const response = await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`);
-        if (!response.ok) throw new Error('Failed to fetch');
+    const proxies = [
+        `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
+        `https://corsproxy.io/?${encodeURIComponent(url)}`,
+        `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`
+    ];
 
-        const html = await response.text();
+    let html = null;
+    let lastError = null;
+
+    for (const proxyUrl of proxies) {
+        try {
+            showLoading('Trying proxy...');
+            const response = await fetch(proxyUrl);
+            if (response.ok) {
+                html = await response.text();
+                if (html && html.length > 0) break;
+            }
+        } catch (error) {
+            lastError = error;
+            continue;
+        }
+    }
+
+    if (!html) {
+        showError('Failed to fetch URL. The site may block CORS proxies.');
+        return;
+    }
+
+    try {
         const parser = new DOMParser();
         const doc = parser.parseFromString(html, 'text/html');
 
@@ -41,7 +65,7 @@ async function fetchAndParse() {
         renderStats(currentDomData.stats);
         statusDiv.style.display = 'none';
     } catch (error) {
-        showError('Error: ' + error.message);
+        showError('Error parsing HTML: ' + error.message);
     }
 }
 
