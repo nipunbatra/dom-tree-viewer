@@ -149,14 +149,31 @@ header p {
     grid-template-columns: 2fr 1fr;
     gap: 24px;
     min-height: 400px;
+    align-items: start;
 }
 
-.tree-panel, .stats-panel {
+.tree-panel {
     background: #fafafa;
     border-radius: 14px;
     padding: 24px;
     overflow: auto;
-    max-height: 580px;
+    max-height: 600px;
+}
+
+.stats-panel, .bs4-panel {
+    background: #fafafa;
+    border-radius: 14px;
+    padding: 24px;
+}
+
+.stats-panel {
+    overflow: auto;
+    max-height: 280px;
+}
+
+.bs4-panel {
+    overflow: auto;
+    max-height: 280px;
 }
 
 .tree-panel h2, .stats-panel h2, .bs4-panel h2 {
@@ -169,6 +186,10 @@ header p {
     background: #fafafa;
     padding-bottom: 12px;
     letter-spacing: -0.01em;
+    z-index: 1;
+}
+
+.tree-panel h2 {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -184,6 +205,7 @@ header p {
     display: flex;
     flex-direction: column;
     gap: 24px;
+    min-width: 0;
 }
 
 .bs4-panel {
