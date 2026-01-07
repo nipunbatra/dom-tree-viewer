@@ -159,7 +159,7 @@ header p {
     max-height: 580px;
 }
 
-.tree-panel h2, .stats-panel h2 {
+.tree-panel h2, .stats-panel h2, .bs4-panel h2 {
     color: #1d1d1f;
     margin-bottom: 16px;
     font-size: 20px;
@@ -169,6 +169,86 @@ header p {
     background: #fafafa;
     padding-bottom: 12px;
     letter-spacing: -0.01em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hint {
+    font-size: 13px;
+    font-weight: 400;
+    color: #86868b;
+}
+
+.right-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.bs4-panel {
+    background: #fafafa;
+    border-radius: 14px;
+    padding: 24px;
+}
+
+.bs4-controls {
+    margin-bottom: 12px;
+    display: flex;
+    gap: 8px;
+}
+
+#copyBtn {
+    padding: 8px 16px;
+    background: #0071e3;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#copyBtn:hover {
+    background: #0077ed;
+}
+
+#copyBtn:active {
+    background: #0065c0;
+    transform: scale(0.98);
+}
+
+#bs4Code {
+    background: #1d1d1f;
+    color: #f5f5f7;
+    padding: 16px;
+    border-radius: 10px;
+    overflow-x: auto;
+    font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, monospace;
+    font-size: 12px;
+    line-height: 1.6;
+    margin: 0;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+#bs4Code code {
+    color: #f5f5f7;
+}
+
+.node-header.selected {
+    background: #0071e3;
+}
+
+.node-header.selected .node-tag,
+.node-header.selected .node-attrs,
+.node-header.selected .node-text {
+    color: white;
+}
+
+.node-header.selected .node-toggle {
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .tree-node {

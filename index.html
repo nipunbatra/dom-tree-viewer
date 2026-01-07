@@ -14,7 +14,7 @@
         </header>
 
         <div class="input-section">
-            <input type="url" id="urlInput" placeholder="https://example.com" />
+            <input type="url" id="urlInput" placeholder="https://example.com" value="https://nipunbatra.github.io/stt-ai-teaching/html/sample-movie-website.html" />
             <button id="fetchBtn">Fetch & Visualize</button>
         </div>
 
@@ -37,13 +37,23 @@
 
         <div class="content-wrapper">
             <div class="tree-panel">
-                <h2>DOM Tree</h2>
+                <h2>DOM Tree <span class="hint">Click any element to select</span></h2>
                 <div id="treeContainer"></div>
             </div>
 
-            <div class="stats-panel">
-                <h2>Statistics</h2>
-                <div id="statsContainer"></div>
+            <div class="right-panel">
+                <div class="stats-panel">
+                    <h2>Statistics</h2>
+                    <div id="statsContainer"></div>
+                </div>
+
+                <div class="bs4-panel">
+                    <h2>Beautiful Soup 4 Code</h2>
+                    <div class="bs4-controls">
+                        <button id="copyBtn">Copy Code</button>
+                    </div>
+                    <pre id="bs4Code"><code>Select an element to generate Beautiful Soup code</code></pre>
+                </div>
             </div>
         </div>
     </div>
