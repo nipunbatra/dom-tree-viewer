@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Tree Viewer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>DOM Tree Viewer</h1>
+            <p>Enter a URL to visualize its DOM structure</p>
+        </header>
+
+        <div class="input-section">
+            <input type="url" id="urlInput" placeholder="https://example.com" />
+            <button id="fetchBtn">Fetch & Visualize</button>
+        </div>
+
+        <div class="controls">
+            <label>
+                <input type="checkbox" id="showAttrs" checked />
+                Show Attributes
+            </label>
+            <label>
+                <input type="checkbox" id="showText" />
+                Show Text Content
+            </label>
+            <label>
+                <input type="checkbox" id="expandAll" />
+                Expand All
+            </label>
+        </div>
+
+        <div id="status"></div>
+
+        <div class="content-wrapper">
+            <div class="tree-panel">
+                <h2>DOM Tree</h2>
+                <div id="treeContainer"></div>
+            </div>
+
+            <div class="stats-panel">
+                <h2>Statistics</h2>
+                <div id="statsContainer"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
